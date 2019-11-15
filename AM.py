@@ -32,24 +32,24 @@ modulado = np.multiply(np.multiply(amplitude_portadora, np.add(
 plt.subplot(2, 2, 1)
 plt.title('Mensagem')
 plt.plot(mensagem)
-plt.xlabel('Amplitude')
-plt.ylabel('Tempo')
+plt.xlabel('Tempo')
+plt.ylabel('Amplitude')
 plt.grid(True)
 
 # Gráfico da Portadora
 plt.subplot(2, 2, 2)
 plt.title('Portadora')
 plt.plot(portadora)
-plt.xlabel('Amplitude')
-plt.ylabel('Tempo')
+plt.xlabel('Tempo')
+plt.ylabel('Amplitude')
 plt.grid(True)
 
 # Gráfico do sinal final
 plt.subplot(2, 2, 3)
 plt.title('Sinal Modulado')
 plt.plot(modulado)
-plt.xlabel('Amplitude')
-plt.ylabel('Tempo')
+plt.xlabel('Tempo')
+plt.ylabel('Amplitude')
 plt.grid(True)
 
 # Apresenta o Gráfico
