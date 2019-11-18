@@ -2,17 +2,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Funções Importantes
-
-
-def sinalBandaBase():
-    return 1
-
-
-def sinalPortadora():
-    return 2
-
-
 # Função Main a ser executada
 
 # Apenas Um Aviso para caso as importações deem errado
@@ -27,7 +16,8 @@ amplitude_portadora = 1
 # Vai dividir cada valor do vetor criado para que se obtenha valores pequenos
 tempo = np.arange(tempo_maximo) / tempo_maximo
 mensagem = np.sin(2 * np.pi * frequencia_mensagem * tempo)
-portadora = np.multiply(amplitude_portadora, np.cos(2 * np.pi * frequencia_portadora * tempo))
+portadora = np.multiply(amplitude_portadora, np.cos(
+    2 * np.pi * frequencia_portadora * tempo))
 modulado = np.multiply(mensagem, portadora)
 demodulado = np.divide(modulado, portadora)
 
