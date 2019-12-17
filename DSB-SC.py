@@ -21,6 +21,8 @@ portadora = np.multiply(amplitude_portadora, np.cos(
     2 * np.pi * frequencia_portadora * tempo))
 modulado = np.multiply(mensagem, portadora)
 
+# ---------------------------- Demodulação -------------------------------------
+
 demodulado = np.multiply(modulado, portadora)
 
 fc = 30
@@ -29,7 +31,7 @@ a, b = scipy.signal.butter(5, w, 'low')
 
 demodulado = scipy.signal.filtfilt(a, b, demodulado)
 
-# Gerar Graficos
+# --------------------------- Gerar Graficos -----------------------------------
 
 # Gráfico da Mensagem
 plt.subplot(2, 2, 1)
