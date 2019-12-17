@@ -5,20 +5,30 @@ import scipy.signal
 
 # Função Main a ser executada
 
-# Apenas Um Aviso para caso as importações deem errado
+# -------------------------- Valores Globais -----------------------------------
 
 # Variaveis Globais - Estas Variaveis alteram todos os valores
 
 tempo_maximo = 45000
 frequencia_mensagem = 5
+amplitude_mensagem = 1
+
 frequencia_portadora = 40
 amplitude_portadora = 1
 
+# ------------------------- Cria Vetor Tempo -----------------------------------
+
 # Vai dividir cada valor do vetor criado para que se obtenha valores pequenos
 tempo = np.arange(tempo_maximo) / tempo_maximo
-mensagem = np.sin(2 * np.pi * frequencia_mensagem * tempo)
+
+# ------------------------- Criação dos Sinais ---------------------------------
+
+mensagem = np.multiply(amplitude_mensagem, np.sin(
+    2 * np.pi * frequencia_mensagem * tempo))
+
 portadora = np.multiply(amplitude_portadora, np.cos(
     2 * np.pi * frequencia_portadora * tempo))
+
 modulado = np.multiply(mensagem, portadora)
 
 # ---------------------------- Demodulação -------------------------------------
