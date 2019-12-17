@@ -1,6 +1,7 @@
 # Importações
 import matplotlib.pyplot as plt
 import numpy as np
+import scipy.signal
 
 # Função Main a ser executada
 
@@ -19,7 +20,14 @@ mensagem = np.sin(2 * np.pi * frequencia_mensagem * tempo)
 portadora = np.multiply(amplitude_portadora, np.cos(
     2 * np.pi * frequencia_portadora * tempo))
 modulado = np.multiply(mensagem, portadora)
-demodulado = np.divide(modulado, portadora)
+
+demodulado = np.multiply(modulado, portadora)
+
+fc = 30
+w = fc / (tempo_maximo / 2)
+a, b = scipy.signal.butter(5, w, 'low')
+
+demodulado = scipy.signal.filtfilt(a, b, demodulado)
 
 # Gerar Graficos
 
